@@ -1,0 +1,35 @@
+- name: install server and configure it
+  hosts: all
+  become: yes
+  roles:
+    - role: secondary_disk
+      vars:
+        device: /dev/sdb
+        fs_type: xfs
+        mount_path: /srv
+
+    - role: fail2ban
+
+    - role: geerlingguy.ntp
+      vars:
+        ntp_enabled: true
+        ntp_timezone: Europe/Zurich
+        ntp_area: 'ch'
+
+    - role: geerlingguy.firewall
+      vars:
+        firewall_allowed_tcp_ports:
+          - "22"
+
+    - role: geerlingguy.pip
+      vars:
+        pip_install_packages:
+          - name: docker-compose
+            state: latest
+          - name: docker
+            state: latest
+
+    - role: geerlingguy.docker
+      vars:
+        docker_daemon_options:
+          data-root: /srv/docker

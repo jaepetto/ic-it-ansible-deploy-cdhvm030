@@ -1,0 +1,12 @@
+- src: https://gitlab.com/jaepetto/ansible-secondary_disk-role
+  scm: git
+  version: main
+  name: secondary_disk
+- src: https://github.com/jaepetto/ic_it.install_fail2ban.git
+  scm: git
+  version: main
+  name: fail2ban
+- geerlingguy.docker
+- geerlingguy.ntp
+- geerlingguy.pip
+- geerlingguy.firewall
