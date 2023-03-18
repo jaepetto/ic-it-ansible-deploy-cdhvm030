@@ -33,3 +33,6 @@
       vars:
         docker_daemon_options:
           data-root: /srv/docker
+
+    - role: deploy_ic_it_ssh_keys
+
