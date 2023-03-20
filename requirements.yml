@@ -15,7 +15,4 @@
   version: main
   name: deploy_ic_it_ssh_keys
 - geerlingguy.node_exporter
-- src: https://github.com/jaepetto/ansible_mount_cifs_volume
-  scm: git
-  version: main
-  name: mount_cifs_volume
+- jaepetto.ansible_mount_cifs_volume

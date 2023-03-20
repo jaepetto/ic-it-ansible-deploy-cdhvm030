@@ -42,7 +42,7 @@
         node_exporter_host: '0.0.0.0'
         node_exporter_port: 9100
 
-    - role: mount_cifs_volume
+    - role: jaepetto.ansible_mount_cifs_volume
       vars:
         cifs_volume: '//cdh1arch.epfl.ch/project_replica'
         mount_point: '/mnt/project_replica'
