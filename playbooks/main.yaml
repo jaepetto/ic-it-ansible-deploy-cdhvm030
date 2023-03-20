@@ -41,3 +41,13 @@
       vars:
         node_exporter_host: '0.0.0.0'
         node_exporter_port: 9100
+
+    - role: mount_cifs_volume
+      vars:
+        cifs_volume: '//cdh1arch.epfl.ch/project_replica'
+        mount_point: '/mnt/project_replica'
+        creds_uuid: 'dhlabreplicacifspwd'
+        fstab_options: 'user,uid=903034,gid=11703,file_mode=0640,dir_mode=0750,ro,suid,vers=3.0,credentials=/etc/{{ creds_uuid }}'
+        username: "{{ lookup('ansible.builtin.env', 'PROJECT_REPLICA_USER') }}"
+        password: "{{ lookup('ansible.builtin.env', 'PROJECT_REPLICA_PASSWORD') }}"
+        domain: 'INTRANET'
